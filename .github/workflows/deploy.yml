@@ -1,0 +1,29 @@
+name: Production Binar Car Rental
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Development Code
+        uses: actions/checkout@v2
+      # - name: Use Node.js 16.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 16.x
+      - run: npm install
+      # - run: npm run test
+      - run: npm run build --if-present
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          #args: deploy --dir=build --prod
+          heroku_api_key: '6c645da6-13f5-42be-9d23-7b68411feb8c'
+          # heroku_app_name: 'binar-car-rental-react'
+          heroku_app_name: 'binar-car-rental-master'
+          heroku_email: 'shohibunnajam@gmail.com'
+          procfile: 'web: npm start'
