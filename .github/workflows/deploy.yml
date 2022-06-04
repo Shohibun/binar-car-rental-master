@@ -23,7 +23,7 @@ jobs:
         with:
           #args: deploy --dir=build --prod
           heroku_api_key: '6c645da6-13f5-42be-9d23-7b68411feb8c'
-          # heroku_app_name: 'binar-car-rental-react'
           heroku_app_name: 'binar-car-rental-master'
+          # heroku_app_name: 'binar-car-rental-react'
           heroku_email: 'shohibunnajam@gmail.com'
           procfile: 'web: npm start'
